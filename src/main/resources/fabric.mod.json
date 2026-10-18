@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "shulkerboxes_reloaded",
+  "version": "${version}",
+  "name": "Shulkerboxes Reloaded",
+  "description": "Open shulker boxes directly from your hand or inventory.",
+  "authors": ["SwordfishBE"],
+  "contact": {
+    "homepage": "https://github.com/SwordfishBE/Shulkerboxes-Reloaded",
+    "sources": "https://github.com/SwordfishBE/Shulkerboxes-Reloaded",
+    "email": "swordfishbe@locutus.net"
+  },
+  "license": "AGPL-3.0",
+  "icon": "assets/shulkerboxes_reloaded/icon.png",
+  "environment": "*",
+  "entrypoints": { "main": ["net.shulkerboxes_reloaded.ShulkerboxesReloaded"] },
+  "mixins": ["shulkerboxes_reloaded.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.163.0+26.3"
+  },
+  "breaks": { "shulkerbox": "*" }
+}
