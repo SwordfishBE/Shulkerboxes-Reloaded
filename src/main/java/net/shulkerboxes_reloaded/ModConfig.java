@@ -13,21 +13,25 @@ final class ModConfig {
         try {
             if (!Files.exists(path)) {
                 Files.createDirectories(path.getParent());
-                Files.writeString(path, "# Place shulker boxes only while sneaking. Restart to apply changes.\nsneak_place=true\n");
+                Files.writeString(path, "# Place shulker boxes only while sneaking. Use /shulkerboxes_reloaded reload to apply changes.\nsneak_place=true\n");
                 return true;
             }
-            Properties properties = new Properties();
-            try (Reader reader = Files.newBufferedReader(path)) {
-                properties.load(reader);
-            }
-            String value = properties.getProperty("sneak_place", "true").trim();
-            if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
-                return Boolean.parseBoolean(value);
-            }
-            ShulkerboxesReloaded.LOGGER.warn("[Shulkerboxes Reloaded] Invalid sneak_place value; using true.");
+            return read(path);
         } catch (IOException | IllegalArgumentException exception) {
             ShulkerboxesReloaded.LOGGER.warn("[Shulkerboxes Reloaded] Cannot load configuration; using defaults.", exception);
         }
         return true;
+    }
+
+    static boolean read(Path path) throws IOException {
+        Properties properties = new Properties();
+        try (Reader reader = Files.newBufferedReader(path)) {
+            properties.load(reader);
+        }
+        String value = properties.getProperty("sneak_place", "true").trim();
+        if (!value.equalsIgnoreCase("true") && !value.equalsIgnoreCase("false")) {
+            throw new IOException("Invalid sneak_place value; expected true or false.");
+        }
+        return Boolean.parseBoolean(value);
     }
 }

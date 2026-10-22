@@ -350,4 +350,6 @@ public class SafetyGameTests {
                 "Placing after portable edits transfers all contents into the block entity");
         h.succeed();
     }
+
 }
+

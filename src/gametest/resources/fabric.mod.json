@@ -5,6 +5,6 @@
   "name": "Shulkerboxes Reloaded Tests",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests"]
+    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests", "net.shulkerboxes_reloaded.ReloadCommandGameTests"]
   }
 }
