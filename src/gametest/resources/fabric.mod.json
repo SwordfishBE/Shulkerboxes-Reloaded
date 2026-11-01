@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "shulkerboxes_reloaded-test",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Shulkerboxes Reloaded Tests",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests", "net.shulkerboxes_reloaded.ReloadCommandGameTests"]
+    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests", "net.shulkerboxes_reloaded.ReloadCommandGameTests", "net.shulkerboxes_reloaded.MinecraftCompatibilityGameTests"]
   }
 }
