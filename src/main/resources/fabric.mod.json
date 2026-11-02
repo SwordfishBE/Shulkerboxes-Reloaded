@@ -13,7 +13,11 @@
   "license": "AGPL-3.0",
   "icon": "assets/shulkerboxes_reloaded/icon.png",
   "environment": "*",
-  "entrypoints": { "main": ["net.shulkerboxes_reloaded.ShulkerboxesReloaded"] },
+  "entrypoints": {
+    "main": ["net.shulkerboxes_reloaded.ShulkerboxesReloaded"],
+    "modmenu": ["net.shulkerboxes_reloaded.ShulkerboxesModMenu"]
+  },
+  "suggests": { "modmenu": "*", "cloth-config": "*" },
   "mixins": ["shulkerboxes_reloaded.mixins.json"],
   "depends": {
     "fabricloader": ">=0.20.1",

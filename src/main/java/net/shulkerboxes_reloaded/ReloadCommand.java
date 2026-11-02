@@ -2,7 +2,6 @@ package net.shulkerboxes_reloaded;
 
 import com.mojang.brigadier.CommandDispatcher;
 import java.io.IOException;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -18,12 +17,15 @@ final class ReloadCommand {
 
     private static int reload(CommandSourceStack source) {
         try {
-            boolean sneakPlace = ModConfig.read(FabricLoader.getInstance().getConfigDir()
-                    .resolve(ShulkerboxesReloaded.ID + ".properties"));
-            // Publish only after the complete file has been read and validated.
-            ShulkerboxesReloaded.sneakPlace = sneakPlace;
+            boolean sneakPlace;
+            synchronized (ModConfig.class) {
+                sneakPlace = ModConfig.read(ShulkerboxesReloaded.configPath());
+                // Publish only after the complete file has been read and validated.
+                ShulkerboxesReloaded.sneakPlace = sneakPlace;
+            }
+            final boolean applied = sneakPlace;
             source.sendSuccess(() -> Component.literal(
-                    "[Shulkerboxes Reloaded] Config reloaded. sneak_place=" + sneakPlace), false);
+                    "[Shulkerboxes Reloaded] Config reloaded. sneak_place=" + applied), false);
             return 1;
         } catch (IOException | IllegalArgumentException exception) {
             ShulkerboxesReloaded.LOGGER.warn(

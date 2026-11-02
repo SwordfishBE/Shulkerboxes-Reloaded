@@ -5,6 +5,6 @@
   "name": "Shulkerboxes Reloaded Tests",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests", "net.shulkerboxes_reloaded.ReloadCommandGameTests", "net.shulkerboxes_reloaded.MinecraftCompatibilityGameTests"]
+    "fabric-gametest": ["net.shulkerboxes_reloaded.ShulkerboxesGameTests", "net.shulkerboxes_reloaded.SafetyGameTests", "net.shulkerboxes_reloaded.ReloadCommandGameTests", "net.shulkerboxes_reloaded.MinecraftCompatibilityGameTests", "net.shulkerboxes_reloaded.ConfigMenuSaveGameTests"]
   }
 }
